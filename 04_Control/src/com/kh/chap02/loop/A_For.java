@@ -140,10 +140,8 @@ public class A_For {
 	}
 	
 	public void method() {
-		int n=4;
-		
-		for(int i=0; i<n; i++) {
-			for(int j=0; j<n-i-1; j++) {
+		for(int i=0; i<4; i++) {
+			for(int j=0; j<4-1-i; j++) {
 				System.out.print(" ");
 			}
 			
@@ -153,8 +151,6 @@ public class A_For {
 			
 			System.out.println();
 		}
-		
-
 		
 		for(int i=2; i<=9; i++) {
 			for(int j=1; j<=9; j++) {
