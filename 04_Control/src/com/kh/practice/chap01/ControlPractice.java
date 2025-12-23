@@ -55,6 +55,7 @@ public class ControlPractice {
 		}
 		*/
 		
+		// 가드조건문(예외 발생 시 프로그램 종료(return))
 		if(!(num > 0)) {
 			System.out.println("양수만 입력해주세요.");
 			return;
@@ -162,6 +163,7 @@ public class ControlPractice {
 		System.out.print("권한을 확인하고자 하는 회원 등급 : ");
 		String grade = sc.next();
 		
+		/*
 		switch(grade) {
 		case "관리자":
 			System.out.println("회원관리, 게시글 관리, 게시글 작성, 게시글 조회, 댓글 작성");
@@ -175,6 +177,16 @@ public class ControlPractice {
 		default:
 			System.out.println("해당 권한은 존재하지 않습니다.");
 		}
+		*/
+		
+		switch(grade) {
+		case "관리자":
+			System.out.print("회원관리, 게시글 관리, ");
+		case "회원":
+			System.out.print("게시글 작성, 댓글 작성, ");
+		case "비회원":
+			System.out.print("게시글 조회");
+		}
 	}
 	
 	public void practice7() {
@@ -184,22 +196,19 @@ public class ControlPractice {
 		double weight = sc.nextDouble();
 		
 		double bmi = weight / (height * height);
-		String result = "";
-		
-		if(bmi < 18.5) {
-			result = "저체중";
-		}else if(bmi < 23) {
-			result = "정상체중";
-		}else if(bmi < 25) {
-			result = "과체중";
-		}else if(bmi < 30) {
-			result = "비만";
-		}else {
-			result = "고도 비만";
-		}
 		
 		System.out.println("BMI 지수 : " + bmi);
-		System.out.println(result);
+		if(bmi < 18.5) {
+			System.out.println("저체중");
+		}else if(bmi < 23) {
+			System.out.println("정상체중");
+		}else if(bmi < 25) {
+			System.out.println("과체중");
+		}else if(bmi < 30) {
+			System.out.println("비만");
+		}else {
+			System.out.println("고도 비만");
+		}
 	}
 	
 	public void practice8() {
@@ -207,14 +216,13 @@ public class ControlPractice {
 		int num1 = sc.nextInt();
 		System.out.print("피연산자2 입력 : ");
 		int num2 = sc.nextInt();
-		
-		if (!(num1 > 0 && num2 > 0)) {
+		System.out.print("연산자를 입력(+,-,*,/,%) : ");
+		char ch = sc.next().charAt(0);
+
+		if (!(num1>0 && num2>0)) {
 	        System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
 	        return;
 	    }
-		
-		System.out.print("연산자를 입력(+,-,*,/,%) : ");
-		char ch = sc.next().charAt(0);
 		float result;
 		
 		switch(ch) {
@@ -258,7 +266,7 @@ public class ControlPractice {
 		
 		System.out.println("================= 결과 =================");
 		
-		if(num4 < 14) {
+		if(num4<=14) {
 			System.out.println("Fail [출석 회수 부족 (" + num4 + "/20)]");
 			return;
 		}
@@ -269,11 +277,13 @@ public class ControlPractice {
 		System.out.println("출석 점수		(20) : " + num);
 		System.out.println("총점 : " + total);
 		
-		if(total >= 70) {
+		if(total>=70) {
 			System.out.println("PASS");
 		}else{
 			System.out.println("FAIL");
 		}
+		
+		System.out.println(total>=70? "PASS" : "FALL");
 	}
 	
 	public void practice10() {
@@ -325,24 +335,44 @@ public class ControlPractice {
 	
 	public void practice11() {
 		System.out.print("비밀번호 입력(1000~9999) : ");
+		
 		int pw = sc.nextInt();
 		
-		if(pw < 1000 || pw > 9999) {
+		if(!(pw >= 1000 || pw <= 9999)) {
 			System.out.println("자리수 안맞음");
 			return;
 		}
 		
-		int a = pw / 1000;
-		int b = pw / 100 % 10;
-		int c = pw / 10 % 10;
-		int d = pw % 10;
+		int a = pw / 1000;		// 천의 자리 (1234/1000=1.234 => 1)
+		int b = pw / 100 % 10;	// 백의 자리 (1234/100%10=12%10=>1.2 => 2)
+		int c = pw / 10 % 10;	// 십의 자리 (1234/10%10=123%10=>12.3 => 3)
+		int d = pw % 10;		// 일의 자리 (1234%10=>123.4=> 4)
 		
 		if(a == b || a == c || a == d ||
 			b ==c || b == d || c == d) {
 			System.out.println("중복 값 있음");
 			return;
 		}
+		/*
+		String pwd = sc.next();
 		
+		// 자리수 검사
+		if (pwd.length() != 4 || pwd.charAt(0) == '0') {
+		    System.out.println("자리 수 안 맞음");
+		    return;
+		}
+		
+		char a = pwd.charAt(0);
+		char b = pwd.charAt(1);
+		char c = pwd.charAt(2);
+		char d = pwd.charAt(3);
+		
+		if(a == b || a == c || a == d ||
+			b ==c || b == d || c == d) {
+			System.out.println("중복 값 있음");
+			return;
+		}
+		*/
 		System.out.println("생성 성공");
 	}
 }

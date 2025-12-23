@@ -14,7 +14,7 @@ public class A_If {
 	
 	public void method1() {
 		/*
-		 * 단독 IF문
+		 * 단독 IF문(가드조건문)
 		 * 
 		 * {표현법}
 		 * if{조건식} {

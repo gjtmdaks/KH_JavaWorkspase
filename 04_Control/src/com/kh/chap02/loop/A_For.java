@@ -137,6 +137,49 @@ public class A_For {
 		for(int i=1; i<=9; i++) {
 			System.out.println("2*"+i+"="+(2*i));
 		}
+		
+		// 구구단 2단부터 ~ 9단까지 모두 출력
+		for(int dan=2; dan<=9; dan++) {
+			for(int i=1; i<=9; i++) {
+				System.out.println(dan+"*"+i+"="+(dan*i));
+			}
+		}
+	}
+	
+	public void method8() {
+		//*****\n
+		//*****\n
+		//*****\n
+		//*****\n
+		// 위 출력형식을 중첩반복문을 이용하여 완성하시오.
+		for(int i=1; i<=4; i++) {
+			for(int j=1; j<=5; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void method9() {
+		//1***\n	한줄 단위로 분해
+		//*2**\n	첫 번째 줄에 1, 두 번째 줄에 2, ...
+		//**3*\n	1234 중에 줄 순번에 맞는 숫자만 출력
+		//***4\n	그 외에는 * 출력
+		
+		/*
+		 * for(int i=1; i<=4; i++) {
+		 *    if(i==1) System.out.print(1);
+		 *    else System.out.print("*");
+		 * }
+		 * 반복
+		 */
+		for(int i=1; i<=4; i++) {
+			for(int j=1; j<=4; j++) {
+				if(j==i) System.out.print(j);
+				else System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 	
 	public void method() {
@@ -150,12 +193,6 @@ public class A_For {
 			}
 			
 			System.out.println();
-		}
-		
-		for(int i=2; i<=9; i++) {
-			for(int j=1; j<=9; j++) {
-				System.out.println(i+"*"+j+"="+(i*j));
-			}
 		}
 	}
 }
