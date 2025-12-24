@@ -198,9 +198,10 @@ public class LoopPractice {
 	public void practice7() {
 		while(true) {
 			System.out.print("연산자(+, -, *, /, %) : ");
-			String ch = sc.next();
+			String str = sc.next();
+			char ch = sc.next().charAt(0);
 
-			if(ch.equals("exit")) {
+			if(str.equals("exit")) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			}
@@ -210,26 +211,26 @@ public class LoopPractice {
 			System.out.print("정수2 : ");
 			int num2 = sc.nextInt();
 			
-			if(ch.equals("/") && num2==0) {
+			if((ch=='/' || ch=='%') && num2==0) {
 				System.out.println("0으로 나눌 수 없습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			double result = 0;
+			int result = 0;
 			switch(ch) {
-			case "+":
+			case '+':
 				result = num1 + num2;
 				break;
-			case "-":
+			case '-':
 				result = num1 - num2;
 				break;
-			case "*":
+			case '*':
 				result = num1 * num2;
 				break;
-			case "/":
-				result = (double)num1 / num2;
+			case '/':
+				result = num1 / num2;
 				break;
-			case "%":
+			case '%':
 				result = num1 % num2;
 				break;
 			default:
@@ -270,15 +271,14 @@ public class LoopPractice {
 		
 		if(num<2) {
 			System.out.println("잘못 입력하셨습니다.");
+			return;
 		}
 		
-		String result = "";
+		String result = "소수입니다.";
 		for(int i=2; i<num; i++) {
 			if(num%i==0) {
 				result = "소수가 아닙니다.";
 				break;
-			}else{
-				result = "소수입니다.";
 			}
 		}
 		System.out.println(result);
@@ -290,18 +290,22 @@ public class LoopPractice {
 
 		if(num<2) {
 			System.out.println("잘못 입력하셨습니다.");
+			return;
 		}
+		
+		// 외부반복문 : 2 ~ num까지 반복
+		// 내부반복문 : 현재 값(i)이 소수인지 판단
 		int total=0;
-		String result="";
 		for(int i=2; i<=num; i++) {
-			result = "소수입니다.";
+			boolean isPrime = true;
+			
 			for(int j=2; j<i; j++) {
 				if(i%j==0) {
-					result = "소수가 아닙니다.";
+					isPrime = false;
 					break;
 				}
 			}
-			if(result.equals("소수입니다.")) {
+			if(isPrime) {
 				System.out.print(i+" ");
 				total++;
 			}
@@ -323,7 +327,6 @@ public class LoopPractice {
 				count++;
 			}
 		}
-		System.out.println();
-		System.out.println("count : "+count);
+		System.out.println("\ncount : "+count);
 	}
 }
