@@ -8,11 +8,12 @@
     <fullyQualifiedTypeName name="com.kh.chap03.branch.B_Continue"/>
     <fullyQualifiedTypeName name="com.kh.practice.chap02.loop.LoopPractice"/>
     <fullyQualifiedTypeName name="com.kh.array.A_Array"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.kh.array.B_ArrayCopy"/>
     <fullyQualifiedTypeName name="com.kh.practice.array.ArrayPractice"/>
     <fullyQualifiedTypeName name="com.kh.practice.comp.func.UpAndDown"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.kh.practice.comp.func.RockPaperScissors"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.kh.array.C_DimensionalArray"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
