@@ -167,10 +167,123 @@ public class DimensionPractice {
 	}
 	
 	public void practice8() {
+		String[]arr = {"강건강","남나나","도대담","류라라","문미미","박보배",
+						"송성실","윤예의","진재주","차천축","피풍표","홍하하"};
 		
+		String[][]arr1 = new String[3][2];
+		String[][]arr2 = new String[3][2];
+		
+		int index = 0;
+		for (int i=0; i<arr1.length; i++) {
+	        for (int j=0; j<arr1[i].length; j++) {
+	            arr1[i][j] = arr[index++];
+	        }
+	    }
+		for (int i=0; i<arr2.length; i++) {
+	        for (int j=0; j<arr2[i].length; j++) {
+	            arr2[i][j] = arr[index++];
+	        }
+	    }
+
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				System.out.print(arr1[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println("== 2분단 ==");
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				System.out.print(arr2[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 	
 	public void practice9() {
+		practice8();
+		String[] arr = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배",
+						"송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+
+		int index = 0;
+		for (int i=0; i<arr1.length; i++) {
+			for (int j=0; j<arr1[i].length; j++) {
+				arr1[i][j] = arr[index++];
+			}
+		}
+		for (int i=0; i<arr2.length; i++) {
+			for (int j=0; j<arr2[i].length; j++) {
+				arr2[i][j] = arr[index++];
+			}
+		}
 		
+		System.out.print("검색할 학생 이름을 입력하세요 : ");
+		String name = sc.next();
+		
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				String a = "";
+				String b = "";
+				
+				switch(i) {
+				case 0:
+					a = "첫";
+					break;
+				case 1:
+					a = "두";
+					break;
+				case 2:
+					a = "세";
+					break;
+				}
+				switch(j) {
+				case 0:
+					b = "왼쪽";
+					break;
+				case 1:
+					b = "오른쪽";
+					break;
+				}
+				if(arr1[i][j].equals(name)) {
+					System.out.println("검색하신 "+name+" 학생은 1분단 "+a+" 번째 줄 "+b+"에 있습니다.");
+				}else {
+					break;
+				}
+			}
+		}
+		
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				String a = "";
+				String b = "";
+				
+				switch(i) {
+				case 0:
+					a = "첫";
+					break;
+				case 1:
+					a = "두";
+					break;
+				case 2:
+					a = "세";
+					break;
+				}
+				switch(j) {
+				case 0:
+					b = "왼쪽";
+					break;
+				case 1:
+					b = "오른쪽";
+					break;
+				}
+				if(arr2[i][j].equals(name)) {
+					System.out.println("검색하신 "+name+" 학생은 2분단 "+a+" 번째 줄 "+b+"에 있습니다.");
+				}
+			}
+		}
 	}
 }

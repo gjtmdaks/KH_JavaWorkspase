@@ -13,7 +13,15 @@
     <fullyQualifiedTypeName name="com.kh.practice.comp.func.UpAndDown"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.kh.practice.comp.func.RockPaperScissors"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.kh.array.C_DimensionalArray"/>
+    <fullyQualifiedTypeName name="com.kh.chap01.abstraction.model.vo.Student"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.kh.chap02.encapsulation.model.vo.Student"/>
+    <fullyQualifiedTypeName name="com.kh.chap03_class.model.vo.Person"/>
+    <fullyQualifiedTypeName name="com.kh.chap04.field.model.vo.FieldTest1"/>
+    <fullyQualifiedTypeName name="com.kh.chap04.field.model.vo.FieldTest2"/>
+    <fullyQualifiedTypeName name="com.kh.chap04.field.model.vo.FieldTest3"/>
+    <fullyQualifiedTypeName name="com.kh.practice.dimension.DimensionPractice"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.security.PublicKey"/>
 </qualifiedTypeNameHistroy>
