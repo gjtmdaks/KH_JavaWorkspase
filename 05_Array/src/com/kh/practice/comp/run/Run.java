@@ -6,9 +6,9 @@ import com.kh.practice.comp.func.UpAndDown;
 public class Run {
 	public static void main(String[] args) {
 		UpAndDown ud = new UpAndDown();
-		ud.upDown();
+		//ud.upDown();
 		
 		RockPaperScissors rps = new RockPaperScissors();
-		//rps.rps();
+		rps.rps();
 	}
 }

@@ -139,9 +139,10 @@ public class ArrayPractice {
 		String str = sc.next();
 		
 		char [] arr = str.toCharArray();
-		
 		char [] copy = arr.clone();
-		for(int i=0; i<arr.length; i++) {
+		// char [] copy = Arrays.copyOf(arr, arr.length);
+		
+		for(int i=0; i<copy.length; i++) {
 			if(i>=8) {
 				copy[i] = '*';
 			}
@@ -151,8 +152,8 @@ public class ArrayPractice {
 	
 	public void practice9() {
 		int [] arr = new int[10];
-		int max = 0;
-		int min = 10;
+		int max = arr[0];
+		int min = arr[0];
 		
 		for(int i=0; i<arr.length; i++) {
 			int a = (int)(Math.random() * 10 + 1);
@@ -194,12 +195,25 @@ public class ArrayPractice {
 		}
 		
 		int [] arr = new int[num];
+		/*
 		for(int i=0; i<arr.length; i++) {
 			for(int j=1; j<num/2; j++) {
 				arr[i] = i+1;
 			}
 			for(int k=num/2+1; k<arr.length; k++) {
 				arr[k] = num-k;
+			}
+			System.out.print(arr[i]+" ");
+		}
+		*/
+		int mid = num/2;
+		int value = 0;
+		
+		for(int i=0; i<arr.length; i++) {
+			if(i<=mid) {
+				arr[i] = ++value;
+			}else {
+				arr[i] = --value;
 			}
 			System.out.print(arr[i]+" ");
 		}
@@ -210,6 +224,7 @@ public class ArrayPractice {
 		int num = sc.nextInt();
 		
 		String [] arr = new String[num];
+		
 		
 		for(int i=0; i<arr.length; i++) {
 			System.out.print((i+1)+"번째 문자열 : ");
@@ -235,6 +250,42 @@ public class ArrayPractice {
 				copy[i] = sc.next();
 			}
 			arr = copy; // 갱신된 배열로 주소 변경
+		}
+	}
+	
+	public void practice13() {
+		System.out.print("배열 크기 : ");
+		int num = sc.nextInt();
+		
+		String [] arr = new String [num];
+		
+		sc.nextLine(); // 개행문자 제거
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.print((i + 1) + "번째 : ");
+			arr[i] = sc.nextLine(); // 띄어쓰기 포함해서 스캔
+		}
+
+		while(true) {
+			System.out.print("더 입력? ");
+			char ch = sc.nextLine().charAt(0);
+			
+			if (ch == 'y' || ch == 'Y') {
+				System.out.print("몇 개? ");
+				int plus = sc.nextInt();
+				String[] copy = Arrays.copyOf(arr, arr.length + plus);
+				
+				sc.nextLine();
+				
+				for (int i = arr.length; i < copy.length; i++) {
+					System.out.print((i + 1) + "번째 : ");
+					copy[i] = sc.nextLine();
+				}
+				arr = copy;
+			}else {
+				System.out.println(Arrays.toString(arr));
+				break;
+			}
 		}
 	}
 }
