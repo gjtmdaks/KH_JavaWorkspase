@@ -25,6 +25,16 @@ public class FieldTest1 {
 	 */
 	// public static int age; <- 클래스변수
 	private int global; // 전역변수 (필드)
+	{
+		// 초기화 블럭
+		// 객체 생성 시 최초 1회 실행
+		global = 50;
+	}
+	
+	// static 초기화 블럭
+	private static int a;
+	static{a=1;} // static 변수를 초기화하는데 사용
+	// 프로그램 실행될 때 최초 1회 실행
 	
 	public void test(int num) { // 매개변수(지역변수)
 		int local = 0; // 지역변수

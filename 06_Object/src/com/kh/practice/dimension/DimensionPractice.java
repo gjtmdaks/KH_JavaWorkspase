@@ -11,10 +11,6 @@ public class DimensionPractice {
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
 				arr[i][j] = "("+i+", "+j+")";
-			}
-		}
-		for(int i=0; i<arr.length; i++) {
-			for(int j=0; j<arr[i].length; j++) {
 				System.out.print(arr[i][j]);
 			}
 			System.out.println();
@@ -28,11 +24,6 @@ public class DimensionPractice {
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
 				arr[i][j] = a++;
-			}
-		}
-
-		for(int i=0; i<arr.length; i++) {
-			for(int j=0; j<arr[i].length; j++) {
 				System.out.print(arr[i][j]+" ");
 			}
 			System.out.println();
@@ -46,11 +37,6 @@ public class DimensionPractice {
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
 				arr[i][j] = a--;
-			}
-		}
-
-		for(int i=0; i<arr.length; i++) {
-			for(int j=0; j<arr[i].length; j++) {
 				System.out.print(arr[i][j]+" ");
 			}
 			System.out.println();
@@ -59,24 +45,40 @@ public class DimensionPractice {
 	
 	public void practice4() {
 		int[][]arr = new int[4][4];
-		
-		for(int i=0; i<arr.length-1; i++) {
+		/*
+		for(int i=0; i<arr.length-1; i++) { // 3행은 제외
 			int sum = 0;
 			for(int j=0; j<arr[i].length; j++) {
 				if(j!=3) {
+					// (0,0) ~ (2,2) 난수 생성 후 저장
 					arr[i][j] = (int)(Math.random()*10+1);
+					
 					sum += arr[i][j]; // 00 + 01 + 02 = 03
 				}else arr[i][j] = sum;
 			}
 		}
 		
-		// 00 + 10 + 20 = 30
+		// 00
+		//+10
+		//+20
+		//-----
+		//=30
 		for(int j=0; j<arr[0].length; j++) {
 			int sum = 0;
 			for(int i=0; i<arr.length; i++) {
 				if(i!=3) {
 					sum += arr[i][j];
 				}else if(i==3) arr[i][j] = sum;
+			}
+		}
+		*/
+		for(int i=0; i<arr.length-1; i++) {
+			for(int j=0; j<arr[i].length-1; j++) {
+				// (0,0)~(2,2) 난수 입력 후 각 행,열의 끝에 값을 더한다
+				arr[i][j] = (int)(Math.random()*10+1);
+				arr[i][3] += arr[i][j];
+				arr[3][j] += arr[i][j];
+				arr[3][3] += arr[i][j]*2;
 			}
 		}
 		
@@ -94,27 +96,22 @@ public class DimensionPractice {
 		System.out.print("열 크기 : ");
 		int c = sc.nextInt(); // column
 		
-		// A=65 ~ Z=90 => 65+25(0~25)
-		if((r>=1 && r<=10) || (c>=1 && c<=10)) {
-			char[][]arr = new char[r][c];
-			
-			for(int i=0; i<arr.length; i++) {
-				for(int j=0; j<arr[i].length; j++) {
-					int random = (int)(Math.random()*25);
-					arr[i][j] = (char)('A'+random);
-				}
-			}
-
-			for(int i=0; i<arr.length; i++) {
-				for(int j=0; j<arr[i].length; j++) {
-					System.out.print(arr[i][j]+" ");
-				}
-				System.out.println();
-			}
-		}else {
+		if(!(r>=1 && r<=10 && c>=1 && c<=10)) {
 			System.out.println("반드시  1~10 사이의 정수를 입력해야 합니다.");
 			practice5();
 			return;
+		}
+		
+		// A=65 ~ Z=90 => 65+25(0~25)
+		char[][]arr = new char[r][c];
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				int random = (int)(Math.random()*26);
+				arr[i][j] = (char)('A'+random);
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
 		}
 	}
 	

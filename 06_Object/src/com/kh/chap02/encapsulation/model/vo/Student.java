@@ -48,7 +48,7 @@ public class Student {
 		this.height = height;
 	}
 	public double getHeight() {
-		return this.height;
+		return height;
 	}
 
 	// 우클릭 -> Source -> Generate Getters and Setters
