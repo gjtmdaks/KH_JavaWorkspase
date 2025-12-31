@@ -22,6 +22,21 @@
     <fullyQualifiedTypeName name="com.kh.chap04.field.model.vo.FieldTest2"/>
     <fullyQualifiedTypeName name="com.kh.chap04.field.model.vo.FieldTest3"/>
     <fullyQualifiedTypeName name="com.kh.practice.dimension.DimensionPractice"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.security.PublicKey"/>
+    <fullyQualifiedTypeName name="com.kh.example.practice2.Product"/>
+    <fullyQualifiedTypeName name="com.kh.example.practice3.model.vo.Circle"/>
+    <fullyQualifiedTypeName name="com.kh.example.practice4.model.vo.Student"/>
+    <fullyQualifiedTypeName name="com.kh.example.practice5.model.vo.Lotto"/>
+    <fullyQualifiedTypeName name="com.kh.chap05.constructor.model.vo.User"/>
+    <fullyQualifiedTypeName name="com.kh.example.practice6.model.vo.Book"/>
+    <fullyQualifiedTypeName name="com.kh.chap06.method.model.vo.MethodTest1"/>
+    <fullyQualifiedTypeName name="com.kh.chap06.method.model.vo.MethodTest2"/>
+    <fullyQualifiedTypeName name="com.kh.practice.snack.model.vo.Snack"/>
+    <fullyQualifiedTypeName name="com.kh.practice.snack.view.SnackMenu"/>
+    <fullyQualifiedTypeName name="com.kh.practice.snack.controller.SnackController"/>
+    <fullyQualifiedTypeName name="com.kh.hw.shape.model.vo.Shape"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.kh.hw.shape.controller.SquareController"/>
+    <fullyQualifiedTypeName name="com.kh.hw.shape.view.ShapeMenu"/>
+    <fullyQualifiedTypeName name="com.kh.hw.shape.controller.TriangleController"/>
 </qualifiedTypeNameHistroy>

@@ -15,20 +15,17 @@ public class SquareController {
 	}
 	
 	public double calcArea(double height, double width) {
-		s.setHeight(height);
-		s.setWidth(width);
-		
-		double result = width * height;
-		
-		return result;
+		s = new Shape(3, height, width);
+		return width * height;
 	}
 	
 	public void paintColor(String color) {
 		s.setColor(color);
+		System.out.println("색이 수정되었습니다.");
 	}
 	
 	public String print() {
-		String result = "사각형\n"+s.information();
-		return result;
+		s.setType(4);
+		return s.information();
 	}
 }

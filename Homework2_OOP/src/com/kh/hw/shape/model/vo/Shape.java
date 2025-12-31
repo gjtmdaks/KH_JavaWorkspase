@@ -11,11 +11,15 @@ public class Shape {
 	}
 	
 	public Shape(int type, double height, double width) {
-		
+		this.type = type;
+		this.height = height;
+		this.width = width;
 	}
 	
 	public String information() {
-		String result = "높이 : "+height+
+		String shape = type==3 ? "삼각형" : "사각형"; 
+		String result = "타입 : "+shape+
+					"\n높이 : "+height+
 					"\n너비 : "+width+
 					"\n색깔 : "+color;
 		return result;
