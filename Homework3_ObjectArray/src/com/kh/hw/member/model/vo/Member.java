@@ -71,7 +71,6 @@ public class Member {
 	}
 	
 	public String inform() {
-		String result = "";
-		return result;
+		return id+" "+name+" "+password+" "+email+" "+gender+" "+age;
 	}
 }
