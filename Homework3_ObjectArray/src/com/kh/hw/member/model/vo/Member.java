@@ -8,10 +8,11 @@ public class Member {
 	private char gender;
 	private int age;
 	
-	public Member() {
+	public Member() {	// 기본 생성자
 		
 	}
 
+	// 변수있는 생성자
 	public Member(String id, String name, String password, String email, char gender, int age) {
 		super();
 		this.id = id;
@@ -22,6 +23,7 @@ public class Member {
 		this.age = age;
 	}
 
+	// get/setter 메서드
 	public String getId() {
 		return id;
 	}
@@ -70,6 +72,7 @@ public class Member {
 		this.age = age;
 	}
 	
+	// 정보 전달
 	public String inform() {
 		return id+" "+name+" "+password+" "+email+" "+gender+" "+age;
 	}

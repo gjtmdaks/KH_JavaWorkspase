@@ -9,12 +9,12 @@ public class Employee {
 	private int salary;
 	private double bonus;
 	
-	public Employee() {
+	public Employee() {	// 기본 생성자
 		super();
 	}
 	
 	public Employee(int empNo, String name, char gender,
-					String phone) {
+					String phone) {	// 변수 4개 있는 생성자
 		super();
 		this.empNo = empNo;
 		this.name = name;
@@ -23,7 +23,7 @@ public class Employee {
 	}
 
 	public Employee(int empNo, String name, char gender,
-			String phone, String dept, int salary, double bonus) {
+			String phone, String dept, int salary, double bonus) {	// 변수 7개 있는 생성자
 		super();
 		this.empNo = empNo;
 		this.name = name;
@@ -34,6 +34,7 @@ public class Employee {
 		this.bonus = bonus;
 	}
 
+	// set/getter 메소드
 	public int getEmpNo() {
 		return empNo;
 	}
@@ -90,6 +91,7 @@ public class Employee {
 		this.bonus = bonus;
 	}
 	
+	// 출력정보 전달
 	public String printEmployee() {
 		return empNo+" "+name+" "+gender+" "+phone+" "+dept+" "+salary+" "+bonus;
 	}

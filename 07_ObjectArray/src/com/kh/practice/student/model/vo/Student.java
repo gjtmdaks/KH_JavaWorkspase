@@ -1,20 +1,21 @@
 package com.kh.practice.student.model.vo;
 
 public class Student {
-	private String name;
-	private String subject;
-	private int score;
+	private String name;	// 이름
+	private String subject;	// 과목
+	private int score;		// 점수
 	
-	public Student() {
+	public Student() {		// 기본 생성자
 		
 	}
 	
-	public Student(String name, String subject, int score) {
+	public Student(String name, String subject, int score) {	// 변수있는 생성자
 		this.name = name;
 		this.subject = subject;
 		this.score = score;
 	}
 
+	// set/getter 메서드
 	public String getName() {
 		return name;
 	}
@@ -39,6 +40,7 @@ public class Student {
 		this.score = score;
 	}
 	
+	// 학생정보 전달
 	public String inform() {
 		return "이름 : "+name+" / 과목 : "+subject+" / 점수 : "+score;
 	}

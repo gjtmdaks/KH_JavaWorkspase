@@ -39,4 +39,5 @@
     <fullyQualifiedTypeName name="com.kh.hw.shape.controller.SquareController"/>
     <fullyQualifiedTypeName name="com.kh.hw.shape.view.ShapeMenu"/>
     <fullyQualifiedTypeName name="com.kh.hw.shape.controller.TriangleController"/>
+    <fullyQualifiedTypeName name="com.kh.hw.member.model.vo.Member"/>
 </qualifiedTypeNameHistroy>
