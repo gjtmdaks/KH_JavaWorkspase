@@ -9,22 +9,43 @@ public class MemberController {
 	// 현재 회원 수
 	int total = 0;
 	public int existMemberNum() {
+		/*
+		int count = 0;
+		for(Member mem : m) {
+			if(mem != null) {
+				count++;
+			}
+		}
+		return count;
+		*/
 		return total;
 	}
 	
 	public boolean checkId(String inputId) { // 아이디 중복 검사
+		boolean isDup = false;
 		for(Member a : m) { // 객체배열 m의 객체 a에서 id만 뽑아 중복 검사
 			if(a != null && a.getId().equals(inputId)) {
-				return true;	// 중복 O
+				isDup = true;	// 중복 O
+				break;
 			}
 		}
-		return false;			// 중복 X
+		return isDup;			// 중복 X
 	}
 	
 	// 회원 추가
 	public void insertMember(String id, String name, String password,
 			String email, char gender, int age) {
 		m[total++] = new Member(id, name, password, email, gender, age);
+		
+		/*
+		Member mem = new Member(id, name, password, email, gender, age);
+		for(int i=0; i<m.length; i++) {
+			if(m[i] == null) {
+				m[i] = mem;
+				break;
+			}
+		}
+		*/
 	}
 	
 	// 아이디 검색
@@ -39,14 +60,18 @@ public class MemberController {
 	}
 	
 	public Member[] searchName(String name) { // 이름은 동명이인이 존재하여 배열로 반환
-		Member[] b = new Member[total];
+		Member[] b = new Member[total-1];
 		int i = 0;
 		for(Member a : m) {
 			if(a != null && a.getName().equals(name)) {
-				b[i] = new Member(a.getId(), a.getName(), a.getPassword(), a.getEmail(), a.getGender(), a.getAge());
-				i++;
+				b[i++] = new Member(a.getId(), a.getName(), a.getPassword(), a.getEmail(), a.getGender(), a.getAge());
 			}
 		}
+		
+		if(i==0) {
+			return null;
+		}
+		
 		return b;
 	}
 	
@@ -55,10 +80,14 @@ public class MemberController {
 		int i = 0;
 		for(Member a : m) {
 			if(a != null && a.getEmail().equals(email)) {
-				b[i] = new Member(a.getId(), a.getName(), a.getPassword(), a.getEmail(), a.getGender(), a.getAge());
-				i++;
+				b[i++] = new Member(a.getId(), a.getName(), a.getPassword(), a.getEmail(), a.getGender(), a.getAge());
 			}
 		}
+		
+		if(i==0) {
+			return null;
+		}
+		
 		return b;
 	}
 	
@@ -74,9 +103,10 @@ public class MemberController {
 	}
 	
 	public boolean updateName(String id, String name) {
-		for(Member a : m) {
-			if(a != null && a.getId().equals(id)) {
-				a.setName(name);
+		for(int i=0; i<m.length; i++) { // 객체배열 m
+			Member mem = m[i];			// 그 안의 객체 mem
+			if(mem != null && mem.getId().equals(id)) {
+				mem.setPassword(name);
 				return true;
 			}
 		}
@@ -96,7 +126,7 @@ public class MemberController {
 	// 하나의 계정만 삭제
 	public boolean delete(String id) {
 		for (int i = 0; i < total; i++) { // 0번째 인덱스부터 현재 회원수까지
-	        if (m[i].getId().equals(id)) { // 각 객체의 아이디 검색하여 일치하면
+	        if (m[i]!=null && m[i].getId().equals(id)) { // 각 객체의 아이디 검색하여 일치하면
 	            for (int j = i; j < total - 1; j++) { // 삭제될 인덱스부터 끝까지
 	                m[j] = m[j + 1]; // 인덱스 앞당기기. 뒷 인덱스 정보를 앞 인덱스로 저장
 	                // 0, 1, 2, 3
@@ -118,20 +148,17 @@ public class MemberController {
 	// 모든 계정 삭제
 	// 한 계정 삭제는 boolean delete(String id)
 	// 모든 계정 삭제는 void delete()
-	// 반환값과 매개변수가 다른 메서드(생성자의 응용지식)
+	// 반환값과 매개변수가 다른 메서드(생성자의 응용)
 	public void delete() {
 		for (int i = 0; i < total; i++) {
 	        m[i] = null;
 	    }
+		// m = mew Member[SIZE]; 아예 새로 생성해서 전체 초기화
 	    total = 0;
 	}
 	
 	// 모든 계정 정보 출력
 	public Member[] printAll() {
-		Member[] result = new Member[total];
-	    for (int i = 0; i < total; i++) {
-	        result[i] = m[i];
-	    }
-	    return result;
+	    return m;
 	}
 }

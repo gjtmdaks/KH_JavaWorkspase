@@ -13,6 +13,7 @@ public class Member {
 	}
 
 	// 변수있는 생성자
+	// 우클릭 source -> generate constructor using fields
 	public Member(String id, String name, String password, String email, char gender, int age) {
 		super();
 		this.id = id;
@@ -24,6 +25,7 @@ public class Member {
 	}
 
 	// get/setter 메서드
+	// 우클릭 source -> generate getters and setters
 	public String getId() {
 		return id;
 	}
@@ -76,4 +78,13 @@ public class Member {
 	public String inform() {
 		return id+" "+name+" "+password+" "+email+" "+gender+" "+age;
 	}
+
+	// 우클릭 source -> generate toString()
+	/*@Override
+	public String toString() {
+		return "Member [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", gender="
+				+ gender + ", age=" + age + "]";
+	}
+	*/
+	
 }

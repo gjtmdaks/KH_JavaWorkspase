@@ -44,8 +44,7 @@ public class EmployeeController {
 	public String inform() {
 		if (e == null) { // 사원 데이터가 없으면
 			return null; // null사원 데이터가 없습니다 반환
-		} else {
-			return e.printEmployee();
 		}
+		return e.printEmployee();
 	}
 }
