@@ -1,4 +1,3 @@
-
 package com.kh.variable;
 
 public class B_Cast {
@@ -87,4 +86,4 @@ public class B_Cast {
 		int iSum2 = iNum + (int)dNum;
 	}
 	
-}	
+}
