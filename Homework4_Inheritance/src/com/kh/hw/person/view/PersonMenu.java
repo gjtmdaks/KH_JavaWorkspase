@@ -23,6 +23,7 @@ public class PersonMenu {
 			System.out.println("9. 끝내기");
 			System.out.print("메뉴 번호 : ");
 			int menu = sc.nextInt();
+			System.out.println();
 			
 			switch(menu) {
 			case 1:
@@ -45,21 +46,22 @@ public class PersonMenu {
 			System.out.println("1. 학생 추가");
 			System.out.println("2. 학생 보기");
 			System.out.println("9. 메인으로");
-			if(pc.personCount()[0] == 3) {
+			int count = pc.personCount()[0]; // 학생 수
+			if(count == 3) {
 				System.out.println("학생을 담을 수 있는 공간이 꽉 찼기 때문에 학생 추가 메뉴는 더 이상 활성화 되지 않습니다.");
 			}
 			System.out.print("메뉴 번호 : ");
 			int menu = sc.nextInt();
+			System.out.println();
 			
 			switch(menu) {
 			case 1:
-				if(pc.personCount()[0] != 3) {
-					insertStudent();
-					break;
-				}else {
+				if(count == 3) {
 					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-					break;
+					continue;
 				}
+				insertStudent();
+				break;
 			case 2:
 				printStudent();
 				break;
@@ -74,7 +76,8 @@ public class PersonMenu {
 	
 	public void employeeMenu() {
 		while (true) {
-			if(pc.personCount()[1] != 10) {
+			int count = pc.personCount()[1]; // 사원 수
+			if(count != 10) {
 				System.out.println("1. 사원 추가");
 			}else {
 				System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 사원 추가 메뉴는 더 이상 활성화 되지 않습니다.");
@@ -83,16 +86,16 @@ public class PersonMenu {
 			System.out.println("9. 메인으로");
 			System.out.print("메뉴 번호 : ");
 			int menu = sc.nextInt();
+			System.out.println();
 			
 			switch(menu) {
 			case 1:
-				if(pc.personCount()[0] != 3) {
-					insertEmployee();
-					break;
-				}else {
+				if(count == 10) {
 					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-					break;
+					continue;
 				}
+				insertEmployee();
+				break;
 			case 2:
 				printEmployee();
 				break;
@@ -122,15 +125,15 @@ public class PersonMenu {
 
 			pc.insertStudent(name, age, height, weight, grade, major);
 
-			if (pc.personCount()[0] < 3) {
-				System.out.print("그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요 : ");
+			if (pc.personCount()[0] != 3) { // 학생 수가 3이 아니면 반복
+				System.out.print("\n그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요 : ");
 				char ch = sc.next().toUpperCase().charAt(0);
 				if (ch == 'N') {
 					System.out.println("그만합니다.");
 					break;
 				}
-			}else {
-				System.out.println("학생을 담을 수 있는 공간이 꽉 찼기 때문에 학생 추가를 종료하고 학생 메뉴로 돌아갑니다.");
+			}else { // 학생 수가 3이면 끝
+				System.out.println("\n학생을 담을 수 있는 공간이 꽉 찼기 때문에 학생 추가를 종료하고 학생 메뉴로 돌아갑니다.");
 				return;
 			}
 		}
@@ -140,7 +143,7 @@ public class PersonMenu {
 		Student[] s = pc.printStudent();
 		for(Student a : s) {
 			if(a==null) {
-				System.out.println("학생정보가 없습니다.");
+				System.out.println("\n학생정보가 없습니다.");
 				break;
 			}
 			System.out.println(a);
@@ -164,15 +167,15 @@ public class PersonMenu {
 
 			pc.insertEmployee(name, age, height, weight, salary, dept);
 
-			if (pc.personCount()[1] < 10) {
-				System.out.print("그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요 : ");
+			if (pc.personCount()[1] != 10) {
+				System.out.print("\n그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요 : ");
 				char ch = sc.next().toUpperCase().charAt(0);
 				if (ch == 'N') {
 					System.out.println("그만합니다.");
 					break;
 				}
 			}else {
-				System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 사원 추가를 종료하고 사원 메뉴로 돌아갑니다.");
+				System.out.println("\n사원을 담을 수 있는 공간이 꽉 찼기 때문에 사원 추가를 종료하고 사원 메뉴로 돌아갑니다.");
 				return;
 			}
 		}
@@ -182,7 +185,7 @@ public class PersonMenu {
 		Employee[] e = pc.printEmployee();
 		for(Employee a : e) {
 			if(a==null) {
-				System.out.println("사원정보가 없습니다.");
+				System.out.println("\n사원정보가 없습니다.");
 				break;
 			}
 			System.out.println(a);

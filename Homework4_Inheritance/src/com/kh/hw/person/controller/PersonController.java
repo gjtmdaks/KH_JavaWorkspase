@@ -9,21 +9,21 @@ public class PersonController {
 	
 	public int[] personCount() {
 		int[] a = new int[2];
-		int student = 0;
-		int employee = 0;
-		for(int i=0; i<s.length; i++) {
-			if(s[i]!=null) {
-				student++;
+		int count = 0;
+		for(Student std : s) {
+			if(std!=null) {
+				count++;
 			}
 		}
-		for(int i=0; i<e.length; i++) {
-			if(e[i]!=null) {
-				employee++;
-			}
-		}
+		a[0] = count;
 		
-		a[0] = student;
-		a[1] = employee;
+		count = 0;
+		for(Employee emp : e) {
+			if(emp!=null) {
+				count++;
+			}
+		}
+		a[1] = count;
 		
 		return a;
 	}
