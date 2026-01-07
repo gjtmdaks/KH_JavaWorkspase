@@ -75,7 +75,7 @@ public class A_StringPool {
 	 * 이 메모리 부족이슈를 해결하기 위해 나온 기능이 '문자열 상수 풀'
 	 * 
 	 * 단, 문자열상수풀로도 감당이 불가능할 정도릐 문자열 연산이 자주 사용되는 프로그램이라면
-	 * 문자열보다는 문자열기반 가변클래스인 (StringBuffer, StringVuilder)를
+	 * 문자열보다는 문자열기반 가변클래스인 (StringBuffer, StringBuilder)를
 	 * 사용하는 것을 권장.
 	 */
 	public void method3() {
