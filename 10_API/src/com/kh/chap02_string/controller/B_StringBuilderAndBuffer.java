@@ -12,7 +12,7 @@ public class B_StringBuilderAndBuffer {
 	 *    있으나 성능이 좋지 못하다.
 	 */
 	
-	public void method1() {
+	public void method() {
 		String str = "Hello";
 		str += "World";
 		

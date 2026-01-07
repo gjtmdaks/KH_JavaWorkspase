@@ -17,6 +17,11 @@ public class LibraryMenu {
 		int age = sc.nextInt();
 		System.out.print("성별(M/F) : ");
 		char gender = sc.next().toUpperCase().charAt(0);
+		if(!(gender=='F' || gender=='M')) {
+			System.out.println("잘못 입력.");
+			mainMenu();
+			return;
+		}
 		
 		lc.insertMember(new Member(name, age, gender));
 		

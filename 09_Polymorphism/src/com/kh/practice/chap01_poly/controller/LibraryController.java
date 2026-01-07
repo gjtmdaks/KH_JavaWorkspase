@@ -41,10 +41,11 @@ public class LibraryController {
 	public int rentBook(int index) {
 		int result = 0;
 		
-		if((bList[index] instanceof AniBook) && ((AniBook)bList[index]).getAccessAge()>mem.getAge()) {
+		Book b = bList[index];
+		if((b instanceof AniBook) && ((AniBook)b).getAccessAge()>mem.getAge()) {
 			result = 1;
 		}
-		if((bList[index] instanceof CookBook) && ((CookBook)bList[index]).isCoupon()) {
+		if((b instanceof CookBook) && ((CookBook)b).isCoupon()) {
 			mem.setCouponCount(mem.getCouponCount()+1);
 			result = 2;
 		}

@@ -1,7 +1,6 @@
 package com.kh.chap02_string.run;
 
-import com.kh.chap02_string.controller.A_StringPool;
-import com.kh.chap02_string.controller.B_StringBuilderAndBuffer;
+import com.kh.chap02_string.controller.*;
 
 public class Run {
 	public static void main(String[] args) {
@@ -9,6 +8,12 @@ public class Run {
 		// asp.method3();
 		
 		B_StringBuilderAndBuffer bs = new B_StringBuilderAndBuffer();
-		bs.method1();
+		//bs.method();
+		
+		C_StringTokenizer cs = new C_StringTokenizer();
+		//cs.method();
+		
+		D_StringMethod ds = new D_StringMethod();
+		ds.method1();
 	}
 }
