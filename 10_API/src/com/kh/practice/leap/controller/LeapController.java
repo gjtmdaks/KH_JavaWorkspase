@@ -14,35 +14,51 @@ public class LeapController {
 		
 		System.out.println(year+"년 "+month+"월 "+day+"일");
 		
-		int count = 0;
+		long total = 0;
 		
 		// 1년 ~ 작년까지
 		for(int i=1; i<year; i++) {
 			if(isLeapYear(i)) {
-				count += 366;
+				total += 366;
 			}else {
-				count += 365;
+				total += 365;
 			}
+			
+			//total += isLeapYear(i) ? 366 : 365;
 		}
 		
 		// 올해 저번달 까지
 		for(int i=1; i<month; i++) {
 			if (i == 2) { // 2월
 				if(isLeapYear(year)) {
-					count += 29;
+					total += 29;
 				}else {
-					count += 28;
+					total += 28;
 				}
 	        } else if (i == 4 || i == 6 || i == 9 || i == 11) {
-	            count += 30;
+	        	total += 30;
 	        } else {
-	            count += 31;
+	        	total += 31;
 	        }
+			
+			/*
+			switch(i) {
+			case 1, 3, 5, 7, 8, 10, 12:
+				total += 31;
+				break;
+			case 4, 6, 9, 11:
+				total += 30;
+				break;
+			case 2:
+				total += isLeapYear(i) ? 29 : 28;
+				break;
+			}
+			*/
 		}
 		
 		// 이번달
-		count += day;
+		total += day;
 		
-		return count;
+		return total;
 	}
 }
