@@ -1,9 +1,11 @@
 package com.kh.exception.run;
 
 import com.kh.exception.controller.A_UncheckedException;
+import com.kh.exception.controller.B_CheckedException;
+import com.kh.exception.controller.C_CustomException;
 
 public class Run {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws C_CustomException {
 		/*
 		 * 에러(오류) 종류
 		 *  - 시스템 에러
@@ -32,6 +34,13 @@ public class Run {
 		 *    이 작동 중지 한다.
 		 */
 		A_UncheckedException au = new A_UncheckedException();
-		au.method1();
+		//au.method3();
+		
+		B_CheckedException bc = new B_CheckedException();
+		//bc.method1();
+		
+		// 에러 강제 발생
+		// throw new 에러클래스 생성자(에러메세지);
+		throw new C_CustomException("에러 발생");
 	}
 }
