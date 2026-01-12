@@ -1,10 +1,13 @@
 package com.kh.chap01_list.part01_arrayList.run;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
 import com.kh.chap01_list.part01_arrayList.model.vo.Music;
+import com.kh.chap01_list.part01_arrayList.model.vo.MusicArtistDescending;
 
 public class ListRun {
 	/*
@@ -170,8 +173,55 @@ public class ListRun {
 		
 		// 12. clear()
 		//     - 리스트에 저장한 모든 값을 비워주는 메서드
-		list.clear();
-		System.out.println("리스트가 비어있습니까? : "+list.isEmpty());
-		System.out.println(list);
+//		list.clear();
+//		System.out.println("리스트가 비어있습니까? : "+list.isEmpty());
+//		System.out.println(list);
+		
+		System.out.println("========================================");
+
+		// 13. Collections.sort(List list) : 배열을 정렬해주는 메서드
+		List<String> list3 = new ArrayList<>();
+		list3.add("라경민");
+		list3.add("나경민");
+		list3.add("가경민");
+		list3.add("다경민");
+		
+		// 정렬메서드 호출
+		System.out.println("정렬 전 : "+list3);
+		Collections.sort(list3); // 가나다라, 1234 오름차순 정렬
+		System.out.println("정렬 후 : "+list3);
+		
+		// 역순으로 정렬
+		Comparator<String> comp = Collections.reverseOrder();
+		Collections.sort(list3, comp);
+		System.out.println("역순 정렬 : "+list3);
+		
+		/*
+		 * 내가만든 클래스(VO)를 정렬하기 위한 방법
+		 * 1. Comparable 인터페이스 상속
+		 *  - VO클래스에 직접 상속시켜서 사용
+		 *  - 해당 VO클래스의 "기본정렬조건"으로 사용된다.
+		 * 
+		 * 2. Comparator 인터페이스 상속
+		 *  - 기본정렬조건 외에 추가 정렬조건을 만들고자 할 때 사용
+		 *  - VO클래스 이외 별도 클래스에 Comparator를 상속시켜서 구현한다.
+		 *  - 여러개의 정렬조건을 만들 수 있다.
+		 */
+		
+		System.out.println("========================================");
+		
+		Collections.sort(list);
+		System.out.println("객체 정렬 : "+list);
+		
+		Comparator<Music> comp2 = new MusicArtistDescending();
+		Collections.sort(list, comp2);
+		System.out.println("아티스트 역정렬 : "+list);
+		
+		System.out.println("========================================");
+
+		// 14. Collections.shuffle()
+		//  - 내부 데이터를 섞는 메서드
+		Collections.shuffle(list3);
+		System.out.println(list3);
 	}
 }
