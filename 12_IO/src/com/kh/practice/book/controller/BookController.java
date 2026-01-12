@@ -7,21 +7,24 @@ import com.kh.practice.book.model.dao.BookDAO;
 import com.kh.practice.book.model.vo.Book;
 
 public class BookController {
-	private BookDAO db = new BookDAO();
+	private BookDAO bd = new BookDAO();
 
 	public void makeFile() {
-		try {
-			new File("book.txt").createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
+		File f = new File("book.txt");
+		if(!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e){
+				e.printStackTrace();
+			}
 		}
 	}
 
 	public void fileSave(Book[] bArr) {
-		db.fileSave(bArr);
+		bd.fileSave(bArr);
 	}
 
 	public Book[] fileRead() {
-		return db.fileRead();
+		return bd.fileRead();
 	}
 }
