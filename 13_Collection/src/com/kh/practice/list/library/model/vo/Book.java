@@ -54,16 +54,42 @@ public class Book implements Comparable {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", categoty=" + categoty + ", price=" + price + "]";
+		return "(" + title + "/" + author + "/" + categoty + "/" + price + ")";
 	}
 
 	@Override
 	public int hashCode() {
+		// 전통적인 hashCode 생성방식
+		/*
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + price;
+		result = prime * result + (title ==null ? 0 : title.hashCode());
+		result = prime * result + (author ==null ? 0 : author.hashCode());
+		result = prime * result + (categoty ==null ? 0 : categoty.hashCode());
+		return result;
+		*/
 		return Objects.hash(author, categoty, price, title);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		// 전통적인 equals 생성방식
+		/*
+		if(!(obj instanceof Book)) {
+			return false;
+		}
+		Book b = (Book) obj;
+		
+		if(this.title.equals(b.title)
+				&& this.author.equals(b.author)
+				&& this.categoty.equals(b.categoty)
+				&& this.price == b.price) {
+			return true;
+		}
+		return false;
+		*/
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -71,12 +97,16 @@ public class Book implements Comparable {
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		return Objects.equals(author, other.author) && Objects.equals(categoty, other.categoty) && price == other.price
+		return Objects.equals(author, other.author)
+				&& Objects.equals(categoty, other.categoty)
+				&& price == other.price
 				&& Objects.equals(title, other.title);
 	}
 
 	@Override
 	public int compareTo(Object o) {
+		// return this.title.compareTo(((Book)o).getTitle());
+		
 		Book b = (Book)o;
 		
 		int result = this.title.compareTo(b.title);

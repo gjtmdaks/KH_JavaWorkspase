@@ -28,29 +28,30 @@ public class BookController {
 	}
 	
 	public ArrayList searchBook(String keyword) {
-		ArrayList alist = new ArrayList<>();
+		ArrayList searchList = new ArrayList();
+		
 		for(Object o : list) {
 			if(!(o instanceof Book)) {
 				continue;
 			}
 			if(((Book)o).getTitle().contains(keyword)) {
-				alist.add(o);
+				searchList.add(o);
 			}
 		}
-		return alist;
+		
+		return searchList;
 	}
 	
 	public Book deleteBook(String title, String author) {
+		Book removeBook = null;
+		
 		for(int i=0; i<list.size(); i++) {
-			Object o = list.get(i);
-			if(!(o instanceof Book)) {
-				continue;
-			}
-			if(((Book)o).getTitle().equals(title) && ((Book)o).getAuthor().equals(author)) {
-				return (Book) list.remove(i);
+			Book b = (Book)list.get(i);
+			if(b.getTitle().equals(title) && b.getAuthor().equals(author)) {
+				removeBook = (Book)list.remove(i);
 			}
 		}
-		return null;
+		return removeBook;
 	}
 	
 	public int ascBook() {
