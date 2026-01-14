@@ -31,6 +31,7 @@ public class MemberMenu {
 				break;
 			case 2:
 				logIn();
+				memberMenu();
 				break;
 			case 3:
 				sameName();
@@ -101,7 +102,6 @@ public class MemberMenu {
 
 			if (result != null) {
 				System.out.println(result+"님, 환영합니다!");
-				memberMenu();
 				break;
 			} else {
 				System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요.");
@@ -142,7 +142,7 @@ public class MemberMenu {
 				System.out.println("이름 변경에 실패했습니다. 다시 입력해주세요.");
 				continue;
 			}
-			System.out.println("현재 이름은 " + name + "입니다.");
+			System.out.println("현재 설정된 이름 : " + name);
 			
 			System.out.print("변경할 이름 : ");
 			String newName = sc.next();
@@ -157,8 +157,7 @@ public class MemberMenu {
 		System.out.print("검색할 이름 : ");
 		String name = sc.next();
 		
-		TreeMap map = mc.sameName(name);
-		System.out.println(map.entrySet());
+		TreeMap<String, String> map = mc.sameName(name);
 		
 		Set<Entry<String, String>> entrySet = map.entrySet();
 		for(Entry<String, String> entry : entrySet) {
