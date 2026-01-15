@@ -2,7 +2,7 @@ package com.kh.practice.thread;
 
 import java.util.Random;
 
-public class Provider implements Runnable {
+public class Provider extends Thread {
 	private Data data;
 	
 	public Provider(Data data) {
@@ -12,15 +12,13 @@ public class Provider implements Runnable {
 	@Override
 	public void run() {
 		for (int i = 1; i <= 10; i++) {
+			data.setValue(new Random().nextInt(100)+1);
+			
 			try {
-				int random = new Random().nextInt(100)+1;
-				data.setValue(random);
-				
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
 		}
 	}
 }

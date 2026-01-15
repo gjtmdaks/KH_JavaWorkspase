@@ -73,22 +73,22 @@ public class FarmMenu {
 		
 		while(true) {
 			System.out.println("******* 고객 메뉴 *******");
-			System.out.println("");
-			System.out.println("2. 종류 삭제");
-			System.out.println("3. 수량 수정");
+			System.out.println("1. 농산물 사기");
+			System.out.println("2. 농산물 빼기");
+			System.out.println("3. 구입한 농산물 보기");
 			System.out.println("9. 메인으로 돌아가기");
 			System.out.print("메뉴 번호 선택 : ");
 			int menu = sc.nextInt();
 			
 			switch(menu) {
 			case 1:
-				addNewKind();
+				buyFarm();
 				break;
 			case 2:
-				removeKind();
+				removeFarm();
 				break;
 			case 3:
-				changeAmount();
+				printBuyFarm();
 				break;
 			case 9:
 				return;
@@ -99,6 +99,25 @@ public class FarmMenu {
 	}
 	
 	public void addNewKind() {
+		while(true) {
+			System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+			int kind = sc.nextInt();
+			System.out.println("추가 농산물의 이름 : ");
+			String name = sc.next();
+			System.out.println("추가 농산물의 수량 : ");
+			int num = sc.nextInt();
+			
+			switch(kind) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+			}
+		}
 		
 	}
 	

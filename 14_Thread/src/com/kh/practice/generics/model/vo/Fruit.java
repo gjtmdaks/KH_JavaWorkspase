@@ -2,15 +2,15 @@ package com.kh.practice.generics.model.vo;
 
 import java.util.Objects;
 
-public class Fruit {
+public class Fruit extends Farm {
 	private String name;
 
 	public Fruit() {
 		super();
 	}
 
-	public Fruit(String name) {
-		super();
+	public Fruit(String kind, String name) {
+		super(kind);
 		this.name = name;
 	}
 
@@ -24,19 +24,22 @@ public class Fruit {
 
 	@Override
 	public String toString() {
-		return "Fruit [name=" + name + "]";
+		return "Fruit [name=" + name + ", getKind()=" + getKind() + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name);
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(name);
+		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;

@@ -2,15 +2,15 @@ package com.kh.practice.generics.model.vo;
 
 import java.util.Objects;
 
-public class Nut {
+public class Nut extends Farm {
 	private String name;
 
 	public Nut() {
 		super();
 	}
 
-	public Nut(String name) {
-		super();
+	public Nut(String kind, String name) {
+		super(kind);
 		this.name = name;
 	}
 
@@ -24,7 +24,7 @@ public class Nut {
 
 	@Override
 	public String toString() {
-		return "Nut [name=" + name + "]";
+		return "Nut [name=" + name + ", getKind()=" + getKind() + "]";
 	}
 
 	@Override
