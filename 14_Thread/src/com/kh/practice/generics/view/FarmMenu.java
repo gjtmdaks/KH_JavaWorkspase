@@ -1,10 +1,8 @@
 package com.kh.practice.generics.view;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
 
 import com.kh.practice.generics.controller.FarmController;
 import com.kh.practice.generics.model.vo.Farm;
@@ -108,32 +106,25 @@ public class FarmMenu {
 	
 	public void addNewKind() {
 		while(true) {
-			System.out.println("1. 과일 / 2. 채소 / 3. 견과");
-			System.out.print("추가할 종류 번호 : ");
-			int kind = sc.nextInt();
-			System.out.print("이름 : ");
-			String name = sc.next();
+			Farm f = createFarm();
 			System.out.print("수량 : ");
 			int num = sc.nextInt();
 			
-			Farm f = new Farm();
-			switch(kind) {
-			case 1:
-				f = new Fruit("과일", name);
-				break;
-			case 2:
-				f = new Vegetable("채소", name);
-				break;
-			case 3:
-				f = new Nut("견과", name);
-				break;
-			default:
-				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-			}
+//			if(kind<1 && kind>3) {
+//				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+//				continue;
+//			}
+//			if(kind == 1) {
+//				f = new Fruit("과일", name);
+//			}else if(kind == 2) {
+//				f = new Vegetable("채소", name);
+//			}else {
+//				f = new Nut("견과", name);
+//			}
 			
 			if(fc.addNewKind(f, num)) {
 				System.out.println("새 농산물이 추가되었습니다.");
-				break;
+				return;
 			}else {
 				System.out.println("새 농산물 추가에 실패하였습니다. 다시 입력해주세요.");
 			}
@@ -175,11 +166,11 @@ public class FarmMenu {
 	public void changeAmount() {
 		while(true) {
 			System.out.println("1. 과일 / 2. 채소 / 3. 견과");
-			System.out.println("수정할 종류 번호 : ");
+			System.out.print("수정할 종류 번호 : ");
 			int kind = sc.nextInt();
-			System.out.println("이름 : ");
+			System.out.print("이름 : ");
 			String name = sc.next();
-			System.out.println("수정할 수량 : ");
+			System.out.print("수정할 수량 : ");
 			int num = sc.nextInt();
 			
 			Farm f = new Farm();
@@ -208,35 +199,17 @@ public class FarmMenu {
 	
 	public void printFarm() {
 		HashMap<Farm, Integer> hm = fc.printFarm();
-		Set<Farm> key = hm.keySet();
-		for(Farm f : key) {
-			int num = hm.get(f);
-			String kind=null;
-			String name=null;
-			
-			if(f instanceof Fruit) {
-				kind = ((Fruit) f).getKind();
-				name = ((Fruit) f).getName();
-			}
-			if(f instanceof Vegetable) {
-				kind = ((Vegetable) f).getKind();
-				name = ((Vegetable) f).getName();
-			}
-			if(f instanceof Nut) {
-				kind = ((Nut) f).getKind();
-				name = ((Nut) f).getName();
-			}
-			
-			System.out.println(kind+" : "+name+"("+num+"개)");
+		for(Farm f : hm.keySet()) {
+			System.out.println(f+"("+hm.get(f)+"개)");
 		}
 	}
 	
 	public void buyFarm() {
 		while(true) {
 			System.out.println("1. 과일 / 2. 채소 / 3. 견과");
-			System.out.println("구매 종류 번호 : ");
+			System.out.print("구매 종류 번호 : ");
 			int kind = sc.nextInt();
-			System.out.println("구매할 것 : ");
+			System.out.print("구매할 것 : ");
 			String name = sc.next();
 			
 			Farm f = new Farm();
@@ -266,9 +239,9 @@ public class FarmMenu {
 	public void removeFarm() {
 		while(true) {
 			System.out.println("1. 과일 / 2. 채소 / 3. 견과");
-			System.out.println("취소 종류 번호 : ");
+			System.out.print("취소 종류 번호 : ");
 			int kind = sc.nextInt();
-			System.out.println("구매 취소할 것 : ");
+			System.out.print("구매 취소할 것 : ");
 			String name = sc.next();
 			
 			Farm f = new Farm();
@@ -296,20 +269,29 @@ public class FarmMenu {
 	}
 	
 	public void printBuyFarm() {
-		ArrayList<Farm> list = fc.printBuyFarm();
+		Iterator<Farm> iter = fc.printBuyFarm().iterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+	}
+	
+	
+	private Farm createFarm() {
+		System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+		System.out.print("종류 번호 : ");
+		int kind = sc.nextInt();
+		System.out.print("이름 : ");
+		String name = sc.next();
 		
-		Iterator<Farm> iter = list.iterator();
-		while(iter.hasNext()) {
-			Farm f = iter.next();
-			if(f instanceof Fruit) {
-				System.out.println((Fruit)f);
-			}
-			if(f instanceof Vegetable) {
-				System.out.println((Vegetable)f);
-			}
-			if(f instanceof Nut) {
-				System.out.println((Nut)f);
-			}
+		switch (kind) {
+		case 1:
+			return new Fruit("과일", name);
+		case 2:
+			return new Vegetable("채소", name);
+		case 3:
+			return new Nut("견과", name);
+		default:
+			return null;
 		}
 	}
 }

@@ -24,7 +24,7 @@ public class Nut extends Farm {
 
 	@Override
 	public String toString() {
-		return "Nut [name=" + name + ", getKind()=" + getKind() + "]";
+		return super.getKind() + " : " + name;
 	}
 
 	@Override
