@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class Run {
 	/*
-	 * TCP
+	 * TCP(Transmission Control Protocol)
 	 *  - 서버와 클라이언트간의 연결지향형 통신방법
 	 *  - 서버와 클라이언트 모두 연결이 되어있어야 데이터를 교환한다.
 	 *  - 신뢰성 있고 안전한 데이터 전달이 가능
