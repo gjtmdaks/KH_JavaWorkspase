@@ -128,5 +128,8 @@ public class StreamBasic {
 		// sum : 스트림 내부의 값을 모두 더해주는 "최종연산" 메서드
 		int sum2 = iStream5.sum();
 		System.out.println("sum2 : "+sum2);
+		
+		//int sum3 = iStream5.sum(); 재사용불가
+		//IllegalStateException 에러 발생
 	}
 }
