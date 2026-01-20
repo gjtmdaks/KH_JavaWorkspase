@@ -2,6 +2,7 @@ package com.kh.chap03_stream.practice;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -65,7 +66,7 @@ public class StreamPractice {
         list.stream()
         	.distinct()
         	.filter(i -> i>=5 && i%2==1)
-        	.sorted()
+        	.sorted(Integer::compareTo)
         	.forEach(i -> System.out.print(i+" "));
 
         System.out.println();
@@ -73,7 +74,7 @@ public class StreamPractice {
         // 3 6 9 9 12 12 18 27 30 33
         list.stream()
         	.map(i -> i*3)
-        	.sorted()
+        	.sorted(Integer::compareTo)
         	.forEach(i -> System.out.print(i+" "));
 
         System.out.println();
@@ -88,7 +89,7 @@ public class StreamPractice {
         //abcdefg
         String s = strlist.stream()
         		.distinct()
-        		.reduce("", String::concat);
+        		.reduce("", String::concat);//(result, str) -> result+str
         System.out.println(s);
 
         // 6. slist에서 학생의 이름과 나이를 학생이름기 오름차순 정렬하여 출력.
@@ -106,7 +107,7 @@ public class StreamPractice {
         	.filter(m -> m.age>=20)
         	.mapToInt(m -> m.score)
         	.average()
-        	.orElse(0.0);
+        	.orElse(0);
         System.out.println(avg);
         	
         // 8. wordArr내부요소의 공백을 모두 제거한후 List<String>으로 변환하는 프로그램
@@ -114,14 +115,31 @@ public class StreamPractice {
         List<String> arr = Arrays
         					.stream(wordArr)
         					.map(str -> str.replace(" ", ""))
-        					.toList();
+        					.collect(Collectors.toList());//toList();
         System.out.println(arr);
 
         // 9. dan을 활용하여 구구단 2단~9단까지 출력하는 프로그램을 만드시오
         //      ex) 2 * 1 = 2
         //          2 * 2 = 4
+        /*
+        for(int i=2; i<10; i++) {
+        	for(int j=1; j<10; j++) {
+        		System.out.println(i+" * "+j+" = "+(i*j));
+        	}
+        }
+         */
+		IntStream.rangeClosed(2, 9)
+				.forEach(i -> IntStream.range(1, 10)
+						.forEach(j -> System.out.println(i+" * "+j+" = "+(i * j))));
         
-
+		IntStream dan1 = IntStream.rangeClosed(2, 9);
+        dan1.forEach(d -> {
+        	IntStream su = IntStream.range(1, 10);
+        	su.forEach( u -> {
+        		System.out.printf("%d * %d = %d\n",d,u,(d*u));
+        	});
+        });
+		
         // 10. wordArr내부요소의 공백을 제거한 문자열의 길이가 8이상인 요소가 있는지 검사하는 프로그램
         // 출력결과 : true/false값
         boolean b = Arrays
